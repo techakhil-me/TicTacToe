@@ -131,7 +131,7 @@ const Play = () => {
     if (rcd.includes(playerStreak)) {
       setWinner(players[currPlayer].name);
 
-      const url = "https://api.tableful.online/table/627299b8d72f0eb94c09ce02";
+      const url = "https://api.tableful.online/table/628101b22f1ddf878d23b7bc";
 
       fetch(url, {
         method: "GET"
@@ -142,7 +142,7 @@ const Play = () => {
             (object) => object.name === players[currPlayer].name
           );
           if (exist !== -1) {
-            let url = `https://api.tableful.online/table/627299b8d72f0eb94c09ce02/${exist}`;
+            let url = `https://api.tableful.online/table/628101b22f1ddf878d23b7bc/${exist}`;
 
             let newdata = {
               name: data[exist].name,
@@ -158,7 +158,7 @@ const Play = () => {
             });
           } else {
             let url =
-              "https://api.tableful.online/table/627299b8d72f0eb94c09ce02";
+              "https://api.tableful.online/table/628101b22f1ddf878d23b7bc";
 
             let newdata = {
               name: players[currPlayer].name,
@@ -171,9 +171,7 @@ const Play = () => {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify(newdata)
-            })
-              .then((response) => response.json())
-              .then((data) => console.log(data));
+            });
           }
         });
     }

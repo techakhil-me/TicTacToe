@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { playersState, gameState } from "../assets/GameSettings";
 import LeaderboardCard from "../components/LeaderboardCard";
@@ -20,7 +19,7 @@ export default function Home() {
     resetPlayers();
     setGame(true);
 
-    const url = "https://api.tableful.online/table/627299b8d72f0eb94c09ce02";
+    const url = "https://api.tableful.online/table/628101b22f1ddf878d23b7bc";
 
     fetch(url, {
       method: "GET"
@@ -34,11 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>TicTacToe</title>
-        <link rel="icon" href="/icon.svg" />
-      </Head>
-      {console.log(leaderboard)}
+      
       <section className="flex flex-col md:flex-row gap-16 md:gap-8 items-center w-full h-full md:text-left text-center pt-10 md:pt-0">
         <div className="flex justify-center flex-col gap-4">
           <div className="flex flex-col gap-4">
@@ -52,13 +47,13 @@ export default function Home() {
           </div>
 
           <div className="flex gap-8 flex-wrap justify-center md:justify-start">
-            <Link href="/solo">
-              <div className="cursor-pointer hover:shadow-md inline-flex items-center justify-center w-72 px-5 py-2.5 bg-gray-50 shadow-xl rounded-lg">
-                <p className="text-2xl font-semibold leading-9 text-gray-900">
-                  Vs Computer
-                </p>
-              </div>
-            </Link>
+            <div
+              onClick={(e) => (e.target.innerHTML = "coming soon")}
+              className="cursor-pointer text-2xl font-semibold leading-9 text-gray-900 hover:shadow-md inline-flex items-center justify-center w-72 px-5 py-2.5 bg-gray-50 shadow-xl rounded-lg"
+            >
+              Vs Computer
+            </div>
+
             <Link href="/multiplayer">
               <div className="cursor-pointer hover:shadow-md hover:shadow-blue-300 inline-flex items-center justify-center w-72 h-14 px-5 py-2.5 bg-blue-600 shadow-blue-300 shadow-xl rounded-lg">
                 <p className="text-2xl font-semibold leading-9 text-gray-50">
@@ -76,37 +71,13 @@ export default function Home() {
             {leaderboard &&
               leaderboard.map((data, i) => (
                 <LeaderboardCard
+                  key={i}
                   name={data.name}
                   rank={i + 1}
                   imgSrc={`https://avatars.dicebear.com/api/male/${data.name}.svg`}
                   wins={data.score}
                 />
               ))}
-            <LeaderboardCard
-              name="Jon Snow"
-              rank="1"
-              imgSrc="https://avatars.dicebear.com/api/male/xaya.svg"
-              wins="3"
-            />
-            <LeaderboardCard
-              name="Jon Snow"
-              rank="2"
-              imgSrc="https://avatars.dicebear.com/api/male/xaasya.svg"
-              wins="3"
-            />
-            <LeaderboardCard
-              name="Jon Snow"
-              rank="3"
-              imgSrc="https://avatars.dicebear.com/api/male/xsdaya.svg"
-              wins="3"
-            />
-
-            <LeaderboardCard
-              name="Jon Snow"
-              rank="4"
-              imgSrc="https://avatars.dicebear.com/api/male/xaerya.svg"
-              wins="3"
-            />
           </div>
         </div>
       </section>
