@@ -26,7 +26,7 @@ export default function Home() {
     })
       .then((response) => response.json())
       .then((data) => {
-        data.sort((a, b) => (a.score > b.score ? 1 : -1));
+        data.sort((a, b) => (a.score < b.score ? 1 : -1));
         setLeaderboard(data);
       });
   }, []);
