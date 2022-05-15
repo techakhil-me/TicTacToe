@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* button */
+::-webkit-scrollbar-button {
+  background: #222;
+  display: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(202, 202, 202);
+  border-radius: 100px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+/* Track */
+
+/* The track NOT covered by the handle.
+::-webkit-scrollbar-track-piece {
+  background: #000; 
+}
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: rgb(0, 0, 0);
+}
+/* Resizer */
+::-webkit-resizer {
+  background: #111;
+}
+
+body {
+  background: #f8f8f8;
+  font-family: "Chakra Petch", sans-serif;
+}
